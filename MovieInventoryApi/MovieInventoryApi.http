@@ -1,0 +1,166 @@
+﻿@MovieInventoryApi_HostAddress = https://localhost:7119
+
+### Create a new movie with all related entities
+POST {{MovieInventoryApi_HostAddress}}/movies
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+  "fileName": "inception.mp4",
+  "releaseDate": "2010-07-16",
+  "studio": {
+    "name": "Warner Bros.",
+    "url": "https://www.warnerbros.com"
+  },
+  "movieDirectors": [],
+  "directors": [
+    {
+      "firstName": "Christopher",
+      "lastName": "Nolan"
+    }
+  ],
+  "movieActors": [],
+  "actors": [
+    {
+      "firstName": "Leonardo",
+      "lastName": "DiCaprio"
+    },
+    {
+      "firstName": "Joseph",
+      "lastName": "Gordon-Levitt"
+    }
+  ],
+  "movieActresses": [],
+  "actresses": [
+    {
+      "firstName": "Marion",
+      "lastName": "Cotillard"
+    },
+    {
+      "firstName": "Ellen",
+      "lastName": "Page"
+    }
+  ],
+  "movieTags": [],
+  "tags": [
+    {
+      "name": "Action",
+      "synonyms": ["Adventure", "Thriller"]
+    }
+  ]
+}
+
+###
+
+### Get all movies
+GET {{MovieInventoryApi_HostAddress}}/movies
+
+###
+
+### Get a specific movie by ID
+@id = 1
+GET {{MovieInventoryApi_HostAddress}}/movies/{{id}}
+
+###
+
+### Update a movie
+@id = 1
+PUT {{MovieInventoryApi_HostAddress}}/movies/{{id}}
+Content-Type: application/json
+
+{
+  "title": "Inception (Updated)",
+  "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+  "fileName": "inception_updated.mp4",
+  "releaseDate": "2010-07-16",
+  "studioId": 1
+}
+
+###
+
+### Delete a movie
+@id = 2
+DELETE {{MovieInventoryApi_HostAddress}}/movies/{{id}}
+
+###
+
+### Get all studios
+GET {{MovieInventoryApi_HostAddress}}/studios
+
+###
+
+### Create a studio
+POST {{MovieInventoryApi_HostAddress}}/studios
+Content-Type: application/json
+
+{
+  "name": "Paramount Pictures",
+  "url": "https://www.paramount.com"
+}
+
+###
+
+### Get all directors
+GET {{MovieInventoryApi_HostAddress}}/directors
+
+###
+
+### Create a director
+POST {{MovieInventoryApi_HostAddress}}/directors
+Content-Type: application/json
+
+{
+  "firstName": "Steven",
+  "lastName": "Spielberg"
+}
+
+###
+
+### Get all actors
+GET {{MovieInventoryApi_HostAddress}}/actors
+
+###
+
+### Create an actor
+POST {{MovieInventoryApi_HostAddress}}/actors
+Content-Type: application/json
+
+{
+  "firstName": "Tom",
+  "lastName": "Hanks"
+}
+
+###
+
+### Get all actresses
+GET {{MovieInventoryApi_HostAddress}}/actresses
+
+###
+
+### Create an actress
+POST {{MovieInventoryApi_HostAddress}}/actresses
+Content-Type: application/json
+
+{
+  "firstName": "Meryl",
+  "lastName": "Streep"
+}
+
+###
+
+### Get all tags
+GET {{MovieInventoryApi_HostAddress}}/tags
+
+###
+
+### Create a tag
+POST {{MovieInventoryApi_HostAddress}}/tags
+Content-Type: application/json
+
+{
+  "name": "Drama",
+  "synonyms": ["Dramatic", "Emotional"]
+}
+
+###

@@ -1,0 +1,8 @@
+﻿create the database and apply the initial migration:
+	dotnet ef migrations add InitialCreate
+	dotnet ef database update
+
+Reset the database:
+	dotnet ef migrations remove
+	dotnet ef database drop
+	dotnet ef database update
